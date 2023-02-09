@@ -1,0 +1,32 @@
+<!--
+including header content which is common for all pages
+-->
+<%- include ../layouts/header.ejs %> <% if (messages.error) { %>
+<p style="color: red"><%- messages.error %></p>
+<% } %> <% if (messages.success) { %>
+<p style="color: green"><%- messages.success %></p>
+<% } %>
+
+<section id="hero" class="hero d-flex align-items-center">
+  <div class="container">
+    <table class="table table-dark table-striped m-3" width="80%" border="0">
+      <tr style="text-align: left; background-color: #ccc">
+        <th>Ranking</th>
+        <th>Nama Alternatif</th>
+        <th>Nilai V</th>
+      </tr>
+      <% var i = 1; %> <% if (data) { %> <% data.forEach(function(vmatrix){ %>
+      <tr>
+        <td><%= i++ %></td>
+        <td><%= vmatrix.nmalternatif %></td>
+        <td><%= vmatrix.nilaiV %></td>
+      </tr>
+      <% }) %> <% } %>
+    </table>
+  </div>
+</section>
+
+<!--
+including footer content which is common for all pages
+-->
+<%- include ../layouts/footer.ejs %>

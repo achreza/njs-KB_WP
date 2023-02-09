@@ -1,0 +1,30 @@
+<!--
+including header content which is common for all pages
+-->
+<%- include ../layouts/header.ejs %> <% if (messages.error) { %>
+<p style="color: red"><%- messages.error %></p>
+<% } %> <% if (messages.success) { %>
+<p style="color: green"><%- messages.success %></p>
+<% } %>
+
+<section id="hero" class="hero d-flex align-items-center">
+  <div class="container">
+    <form action="/alternatif/add" method="post" name="form1">
+      <table width="25%" border="0" class="text-white">
+        <tr>
+          <td>Nama alternatif</td>
+          <td><input class="form-control" type="text" name="nmalternatif" id="nmalternatif" value="<%= nmalternatif %>" /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input class="btn-get-started" type="submit" name="Submit" value="Add" /></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</section>
+
+<!--
+including footer content which is common for all pages
+-->
+<%- include ../layouts/footer.ejs %>

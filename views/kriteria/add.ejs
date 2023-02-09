@@ -1,0 +1,30 @@
+<!--
+including header content which is common for all pages
+-->
+<%- include ../layouts/header.ejs %>
+
+<section id="hero" class="hero d-flex align-items-center">
+  <div class="container">
+    <form action="/kriteria/add" method="post" name="form1">
+      <table width="25%" border="0" class="text-white">
+        <tr>
+          <td class="">Nama Kriteria</td>
+          <td><input class="form-control" type="text" name="nm_kriteria" id="nm_kriteria" value="<%= nm_kriteria %>" /></td>
+        </tr>
+        <tr>
+          <td>Jenis</td>
+          <td><input class="form-control" type="text" name="jenis" value="<%= jenis %>" /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input class="btn-get-started" type="submit" name="Submit" value="Add" /></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</section>
+
+<!--
+including footer content which is common for all pages
+-->
+<%- include ../layouts/footer.ejs %>
