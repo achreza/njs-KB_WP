@@ -1,23 +1,48 @@
-<!--
-including header content which is common for all pages
--->
-<%- include layouts/header.ejs %>
-
-<!-- ======= Hero Section ======= -->
-<section id="hero" class="hero d-flex align-items-center">
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Dashboard</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Dashboard</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
   <div class="container">
+    <div class="row ">
+      <div class="col-lg-8 offset-lg-2">
+        <h2 class="font-weight-bold text-center">Selamat Datang di Aplikasi Sistem Pendukung Keputusan untuk Pemilihan
+          Alat
+          Keluarga
+          Berencana (KB)</h2>
+      </div>
+    </div>
     <div class="row">
-      <div class="col-xl-4">
-        <h2 data-aos="fade-up">Metode WP</h2>
-        <blockquote data-aos="fade-up" data-aos-delay="100">
-          <p>Achmad Fahreza Alif Pahlevi - 200605110098</p>
-        </blockquote>
-        <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-          <a href="#" class="btn-get-started">Get Started</a>
-        </div>
+      <div class="col-lg-8 mt-4 offset-lg-2 ">
+        <p style="font-size: 20px;">Sistem ini akan memberikan anda saran pemilihan Alat KB berdasarkan preferensi
+          yang anda tentukan.</p>
+        <p style="text-align: justify;">Disclaimer : <br>
+          Sistem ini hanya diperuntukkan untuk orang yang tidak memiliki resiko penyakit jantung (tekanan darah
+          tinggi, diabetes,
+          merokok, dan penyakit lainnya). Apabila memiliki resiko tersebut, silahkan konsultasi secara langsung dengan
+          petugas
+          kesehatan untuk menentukan alat KB yang tepat.</p>
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col-lg-8 offset-lg-2 text-center">
+        <a href="/jenis"><button type="button" class="btn btn-primary btn-lg mt-4"
+            style="width: 150px;">Mulai</button></a>
+
       </div>
     </div>
   </div>
-</section>
-<!-- End Hero Section -->
-<%- include layouts/footer.ejs %>
+  <!-- /.content-header -->
+</div>

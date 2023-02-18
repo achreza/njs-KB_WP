@@ -1,29 +1,110 @@
-<%- include ../layouts/header.ejs %> <% if (messages.error) { %>
-<p style="color: red"><%- messages.error %></p>
-<% } %> <% if (messages.success) { %>
-<p style="color: green"><%- messages.success %></p>
-<% } %>
+<!-- Content Wrapper. Contains page content -->
 
-<!-- ======= Hero Section ======= -->
-<section id="hero" class="hero d-flex align-items-center">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-4">
-        <h2 data-aos="fade-up">Focus On What Matters</h2>
-        <blockquote data-aos="fade-up" data-aos-delay="100">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis cum recusandae eum laboriosam voluptatem repudiandae odio, vel exercitationem
-            officiis provident minima.
-          </p>
-        </blockquote>
-        <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-          <a href="#about" class="btn-get-started">Get Started</a>
-          <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"
-            ><i class="bi bi-play-circle"></i><span>Watch Video</span></a
-          >
-        </div>
-      </div>
-    </div>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Starter Page</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Starter Page</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
   </div>
-</section>
-<!-- End Hero Section -->
+  <!-- /.content-header -->
+
+
+  <!-- Main content -->
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+
+              <p class="card-text">
+                Some quick example text to build on the card title and make up the
+                bulk
+                of
+                the
+                card's
+                content.
+              </p>
+
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+
+          <div class="card card-primary card-outline">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+
+              <p class="card-text">
+                Some quick example text to build on the card title and make up the
+                bulk
+                of
+                the
+                card's
+                content.
+              </p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div><!-- /.card -->
+        </div>
+        <!-- /.col-md-6 -->
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="m-0">Featured</h5>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">Special title treatment</h6>
+
+              <p class="card-text">With supporting text below as a natural lead-in to
+                additional
+                content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+
+          <div class="card card-primary card-outline">
+            <div class="card-header">
+              <h5 class="m-0">Featured</h5>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">Special title treatment</h6>
+
+              <p class="card-text">With supporting text below as a natural lead-in to
+                additional
+                content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <!-- /.col-md-6 -->
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+  <!-- Control sidebar content goes here -->
+  <div class="p-3">
+    <h5>Title</h5>
+    <p>Sidebar content</p>
+  </div>
+</aside>
+<!-- /.control-sidebar -->

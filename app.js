@@ -4,6 +4,7 @@ var app = express();
 var mysql = require("mysql");
 
 var myConnection = require("express-myconnection");
+var expressLayout = require("express-ejs-layouts");
 
 var config = require("./config");
 var dbOptions = {
@@ -14,9 +15,11 @@ var dbOptions = {
   database: config.database.db,
 };
 
+
 app.use(myConnection(mysql, dbOptions, "pool"));
 
 app.set("view engine", "ejs");
+app.use(expressLayout);
 
 var index = require("./routes/index");
 var kriteria = require("./routes/kriteria");
@@ -31,17 +34,15 @@ var wp_nilais = require("./routes/wp_nilais");
 var wp_nilaiv = require("./routes/wp_nilaiv");
 var wp_normalisasiterbobot = require("./routes/wp_normalisasiterbobot");
 var wp_pangkat = require("./routes/wp_pangkat");
-var topsis_maxmin = require("./routes/topsis_maxmin");
-var topsis_normalisasi = require("./routes/topsis_normalisasi");
-var topsis_nilaiv = require("./routes/topsis_nilaiv");
-var topsis_pembagi = require("./routes/topsis_pembagi");
-var topsis_sipsin = require("./routes/topsis_sipsin");
-var topsis_terbobot = require("./routes/topsis_terbobot");
-var multimoora_1 = require("./routes/multimoora_1");
-var multimoora_2 = require("./routes/multimoora_2");
-var multimoora_3 = require("./routes/multimoora_3");
-var multimoora_4 = require("./routes/multimoora_4");
 var wp_ranking = require("./routes/wp_ranking");
+
+// KB
+var jenis = require("./routes/kb/jenis");
+var criteria = require("./routes/kb/criteria");
+var priority = require("./routes/kb/priority");
+var alternate = require("./routes/kb/alternate");
+var result = require("./routes/kb/result");
+var effect = require("./routes/kb/effect");
 
 var expressValidator = require("express-validator");
 app.use(expressValidator());
@@ -93,16 +94,14 @@ app.use("/wp_nilaiv", wp_nilaiv);
 app.use("/wp_normalisasiterbobot", wp_normalisasiterbobot);
 app.use("/wp_pangkat", wp_pangkat);
 app.use("/wp_ranking", wp_ranking);
-app.use("/topsis_maxmin", topsis_maxmin);
-app.use("/topsis_normalisasi", topsis_normalisasi);
-app.use("/topsis_nilaiv", topsis_nilaiv);
-app.use("/topsis_pembagi", topsis_pembagi);
-app.use("/topsis_sipsin", topsis_sipsin);
-app.use("/topsis_terbobot", topsis_terbobot);
-app.use("/multimoora_1", multimoora_1);
-app.use("/multimoora_2", multimoora_2);
-app.use("/multimoora_3", multimoora_3);
-app.use("/multimoora_4", multimoora_4);
+
+app.use("/jenis", jenis);
+app.use("/criteria", criteria);
+app.use("/priority", priority);
+app.use("/alternate", alternate);
+app.use("/result", result);
+app.use("/effect", effect);
+
 
 app.use(express.static("public"));
 app.use(express.static(__dirname + "/public"));
