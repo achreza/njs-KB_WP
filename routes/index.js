@@ -3,7 +3,10 @@ var app = express();
 
 app.get("/", function (req, res) {
   // render to views/index.ejs template file
-  res.render("index", { title: "DSS Bahasa Pemrogaman" });
+  res.render("index", {
+    layout: 'layouts/layout',
+    title: "DSS Bahasa Pemrogaman"
+  });
 });
 
 /**
