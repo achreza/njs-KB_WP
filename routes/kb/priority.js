@@ -55,18 +55,43 @@ app.post("/add", function (req, res, next) {
       tes.push([arrValue[i], arrId[i]]);
     }
 
-    console.log(value);
+    console.log(tes);
 
     req.getConnection(function (error, conn) {
-      var sql = "INSERT INTO bobot (value, id_kriteria) VALUES ?";
-      conn.query(sql, [tes], function (err, result) {
-        //if(err) throw err
-        if (err) {
-          req.flash("error", err);
+      for (let index = 0; index < arrValue.length; index++) {
+        var sql = "UPDATE bobot set value = " + arrValue[index] + " where id_kriteria = " + arrId[index] + ";";
 
-          // render to views/kriteria/add.ejs
-          req.getConnection(function (error, conn) {
-            conn.query("SELECT * FROM kriteria", function (err, rows) {
+        conn.query(sql, function (err, result) {
+          //if(err) throw err
+          if (err) {
+            req.flash("error", err);
+
+            // render to views/kriteria/add.ejs
+            req.getConnection(function (error, conn) {
+              conn.query("SELECT * FROM kriteria", function (err, rows) {
+                //if(err) throw err
+                if (err) {
+                  req.flash("error", err);
+                  res.render("kb/weight/priority", {
+                    title: "Kriteria List",
+                    data: "",
+                    layout: "layouts/layout",
+                  });
+                } else {
+                  // render to views/kb/weight/priority.ejs template file
+
+                  res.render("kb/weight/priority", {
+                    title: "Kriteria List",
+                    data: rows,
+                    layout: "layouts/layout",
+                  });
+                }
+              });
+            });
+          } else {
+            req.flash("success", "Data added successfully!");
+
+            conn.query("SELECT * FROM wp_ranking LIMIT 3", function (err, rows) {
               //if(err) throw err
               if (err) {
                 req.flash("error", err);
@@ -78,24 +103,18 @@ app.post("/add", function (req, res, next) {
               } else {
                 // render to views/kb/weight/priority.ejs template file
 
-                res.render("kb/weight/priority", {
-                  title: "Kriteria List",
-                  data: rows,
+                res.render("kb/result/result", {
+                  title: "Add New kriteria",
                   layout: "layouts/layout",
+                  data: rows,
                 });
               }
             });
-          });
-        } else {
-          req.flash("success", "Data added successfully!");
+          }
+        });
 
-          // render to views/kriteria/add.ejs
-          res.render("kb/result/result", {
-            title: "Add New kriteria",
-            layout: "layouts/layout",
-          });
-        }
-      });
+        // render to views/kriteria/add.ejs
+      }
     });
   } else {
     //Display errors to kriteria
