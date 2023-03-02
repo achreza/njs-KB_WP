@@ -37,17 +37,7 @@ app.post("/add", function (req, res, next) {
   var errors = req.validationErrors();
 
   if (!errors) {
-    //No errors were found.  Passed Validation!
-
-    /********************************************
-             * Express-validator module
-             
-            req.body.comment = 'a <span>comment</span>';
-            req.body.kriteriaprioritas = '   a kriteria    ';
-    
-            req.sanitize('comment').escape(); // returns 'a &lt;span&gt;comment&lt;/span&gt;'
-            req.sanitize('kriteriaprioritas').trim(); // returns 'a kriteria'
-            ********************************************/
+   
     var bobot = {
       value: req.sanitize("prioritas").escape().trim(),
       id_kriteria: req.sanitize("id_kriteria").escape().trim(),
