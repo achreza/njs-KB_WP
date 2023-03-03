@@ -9,7 +9,7 @@
 .btn-small-custom {
   width: 100px;
   height: 30px;
-  background: #5F48E6;;
+  background: #5F48E6;
 }
 
 .box2 {
@@ -27,4 +27,20 @@
   background: #D7D0FF;
   padding: 15px;
   margin: 10px;
+}
+.box4{
+  width: 310px;
+  height: 115px;
+  border-radius: 20px;
+  background: #ffff;
+  padding: 15px;
+  margin: 10px;
+}
+.box5{
+  width: 60px;
+  height: 60px;
+  background: #D7D0FF;
+}
+.btn {
+  background: #5F48E6;
 }

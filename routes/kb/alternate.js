@@ -5,7 +5,8 @@ app.get("/", function (req, res) {
     // render to views/index.ejs template file
     res.render("kb/alternate/alternate", {
         layout: 'layouts/layout',
-        title: "DSS Bahasa Pemrogaman"
+        title: "SPK-KB",
+        page: "alternate"
     });
 });
 

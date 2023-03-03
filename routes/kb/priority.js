@@ -11,18 +11,20 @@ app.get("/", function (req, res) {
       if (err) {
         req.flash("error", err);
         res.render("kb/weight/priority", {
-          title: "Kriteria List",
+          title: "SPK-KB",
           data: "",
           layout: "layouts/layout",
+          page: "priority"
         });
       } else {
         // render to views/kb/weight/priority.ejs template file
 
         res.render("kb/weight/priority", {
-          title: "Kriteria List",
+          title: "SPK-KB",
           data: rows,
           layout: "layouts/layout",
           jenis,
+          page: "priority"
         });
       }
     });
@@ -37,7 +39,7 @@ app.post("/add", function (req, res, next) {
   var errors = req.validationErrors();
 
   if (!errors) {
-   
+
     var bobot = {
       value: req.sanitize("prioritas").escape().trim(),
       id_kriteria: req.sanitize("id_kriteria").escape().trim(),
@@ -73,17 +75,19 @@ app.post("/add", function (req, res, next) {
                 if (err) {
                   req.flash("error", err);
                   res.render("kb/weight/priority", {
-                    title: "Kriteria List",
+                    title: "SPK-KB",
                     data: "",
                     layout: "layouts/layout",
+                    page: "priority"
                   });
                 } else {
                   // render to views/kb/weight/priority.ejs template file
 
                   res.render("kb/weight/priority", {
-                    title: "Kriteria List",
+                    title: "SPK-KB",
                     data: rows,
                     layout: "layouts/layout",
+                    page: "priority"
                   });
                 }
               });
@@ -96,17 +100,19 @@ app.post("/add", function (req, res, next) {
               if (err) {
                 req.flash("error", err);
                 res.render("kb/weight/priority", {
-                  title: "Kriteria List",
+                  title: "SPK-KB",
                   data: "",
                   layout: "layouts/layout",
+                  page: "priority"
                 });
               } else {
                 // render to views/kb/weight/priority.ejs template file
 
                 res.render("kb/result/result", {
-                  title: "Add New kriteria",
+                  title: "SPK-KB",
                   layout: "layouts/layout",
                   data: rows,
+                  page: "result"
                 });
               }
             });

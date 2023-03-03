@@ -24,33 +24,33 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/" class="nav-link active">
+                            <a href="/" class="nav-link <%= page === 'home' ? 'active' : '' %>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Home</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/jenis" class="nav-link">
+                            <a href="/jenis" class="nav-link <%= page === 'type' ? 'active' : '' %>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Posisi</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link disabled">
+                            <a href="#" class="nav-link disabled <%= page === 'criteria' ? 'active' : '' %>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Kriteria</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="#" class="nav-link disabled <%= page === 'priority' ? 'active' : '' %>">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Skala</p>
+                                <p>Bobot</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="#" class="nav-link disabled <%= page === 'result' ? 'active' : '' %>">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Matrik</p>
+                                <p>Rekomendasi</p>
                             </a>
                         </li>
                     </ul>
