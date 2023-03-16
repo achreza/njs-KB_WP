@@ -1,7 +1,7 @@
 var express = require("express");
 var app = express();
 
-app.get("/", function (req, res) {
+app.get("/(:jenis)", function (req, res) {
   // render to views/index.ejs template file
 
   let jenis = req.params.jenis;
@@ -32,19 +32,12 @@ app.get("/", function (req, res) {
 });
 
 // ADD NEW kriteria POST ACTION
-app.post("/add", function (req, res, next) {
+app.post("/add/(:jenis)", function (req, res, next) {
   req.assert("prioritas", "prioritas is required").notEmpty(); //Validate prioritas
   req.assert("id_kriteria", "id_kriteria is required").notEmpty(); //Validate id_kriteria
+  let jenis = req.params.jenis;
 
-  var errors = req.validationErrors();
-
-  if (!errors) {
-
-    var bobot = {
-      value: req.sanitize("prioritas").escape().trim(),
-      id_kriteria: req.sanitize("id_kriteria").escape().trim(),
-    };
-
+  if (!req.validationErrors()) {
     var value = req.sanitize("prioritas").escape().trim();
     var id_kriteria = req.sanitize("id_kriteria").escape().trim();
 
@@ -57,83 +50,27 @@ app.post("/add", function (req, res, next) {
       tes.push([arrValue[i], arrId[i]]);
     }
 
-    console.log(tes);
-
     req.getConnection(function (error, conn) {
+      var hasError = false;
       for (let index = 0; index < arrValue.length; index++) {
         var sql = "UPDATE bobot set value = " + arrValue[index] + " where id_kriteria = " + arrId[index] + ";";
 
         conn.query(sql, function (err, result) {
-          //if(err) throw err
-          if (err) {
+          if (err && !hasError) {
+            hasError = true;
             req.flash("error", err);
-
-            // render to views/kriteria/add.ejs
-            req.getConnection(function (error, conn) {
-              conn.query("SELECT * FROM kriteria", function (err, rows) {
-                //if(err) throw err
-                if (err) {
-                  req.flash("error", err);
-                  res.render("kb/weight/priority", {
-                    title: "SPK-KB",
-                    data: "",
-                    layout: "layouts/layout",
-                    page: "priority"
-                  });
-                } else {
-                  // render to views/kb/weight/priority.ejs template file
-
-                  res.render("kb/weight/priority", {
-                    title: "SPK-KB",
-                    data: rows,
-                    layout: "layouts/layout",
-                    page: "priority"
-                  });
-                }
-              });
-            });
-          } else {
-            req.flash("success", "Data added successfully!");
-
-            conn.query("SELECT * FROM wp_ranking LIMIT 3", function (err, rows) {
-              //if(err) throw err
-              if (err) {
-                req.flash("error", err);
-                res.render("kb/weight/priority", {
-                  title: "SPK-KB",
-                  data: "",
-                  layout: "layouts/layout",
-                  page: "priority"
-                });
-              } else {
-                // render to views/kb/weight/priority.ejs template file
-
-                res.render("kb/result/result", {
-                  title: "SPK-KB",
-                  layout: "layouts/layout",
-                  data: rows,
-                  page: "result"
-                });
-              }
-            });
+            res.redirect("/criteria/" + jenis);
           }
         });
+      }
 
-        // render to views/kriteria/add.ejs
+      if (!hasError) {
+        res.redirect("/result/" + jenis);
       }
     });
   } else {
-    //Display errors to kriteria
-    // var error_msg = "";
-    // errors.forEach(function (error) {
-    //   error_msg += error.msg + "<br>";
-    // });
-    // req.flash("error", error_msg);
-    // res.render("kriteria/add", {
-    //   title: "Add New kriteria",
-    //   prioritas: req.body.prioritas,
-    //   id_kriteria: req.body.id_kriteria,
-    // });
+    req.flash('error', 'There was an error processing your request, please try again.');
+    res.redirect('/criteria/' + jenis);
   }
 });
 
