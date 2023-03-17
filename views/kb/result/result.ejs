@@ -3,54 +3,61 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Pilihan</h1>
-        </div>
-        <!-- /.col -->
+          <h1 class="m-0">Rekomendasi</h1>
+        </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Pilihan</li>
+            <li class="breadcrumb-item">Home</li>
+            <li class="breadcrumb-item">Kriteria</li>
+            <li class="breadcrumb-item">Prioritas</li>
+            <li class="breadcrumb-item">Rekomendasi</li>
           </ol>
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
-    </div>
-    <!-- /.container-fluid -->
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
   </div>
   <div class="container">
     <div class="row">
       <div class="col-lg-8 offset-lg-2">
-        <h2 class="font-weight-bold text-center mb-4">Berdasarkan prioritas urutan yang anda masukkan, berikut urutan rekomendasi alat KB untuk anda</h2>
+        <h2 class="font-weight-bold text-center mb-4">Berdasarkan prioritas urutan yang anda masukkan, berikut urutan
+          rekomendasi alat KB untuk anda</h2>
       </div>
     </div>
     <div class="row">
       <div class="col-lg-4">
         <div class="box3">
-          <p class="font-weight-bold"><%= data[0].nm_alternatif %></p>
+          <p class="font-weight-bold">
+            <%= data[0].nm_alternatif %>
+          </p>
           <p>
-            Metode : Jangka Panjang Efektifitas : Sangat Efektif Efek Samping : Lebih Banyak Pengembalian Kesuburan : Segera Harga : Terjangkau Pemasangan :
-            Dengan tenaga kesehatan Kenyamanan saat berhubungan : Tidak mengganggu
+            Keterangan
           </p>
         </div>
       </div>
       <div class="col-lg-4">
         <div class="box3">
-          <p class="font-weight-bold"><%= data[1].nm_alternatif %></p>
+          <p class="font-weight-bold">
+            <%= data[1].nm_alternatif %>
+          </p>
           <p>
-            Metode : Jangka Panjang Efektifitas : Sangat Efektif Efek Samping : Lebih Banyak Pengembalian Kesuburan : Segera Harga : Terjangkau Pemasangan :
-            Dengan tenaga kesehatan Kenyamanan saat berhubungan : Tidak mengganggu
+            Keterangan
           </p>
         </div>
       </div>
       <div class="col-lg-4">
         <div class="box3">
-          <p class="font-weight-bold"><%= data[2].nm_alternatif %></p>
+          <p class="font-weight-bold">
+            <%= data[2].nm_alternatif %>
+          </p>
           <p>
-            Metode : Jangka Panjang Efektifitas : Sangat Efektif Efek Samping : Lebih Banyak Pengembalian Kesuburan : Segera Harga : Terjangkau Pemasangan :
-            Dengan tenaga kesehatan Kenyamanan saat berhubungan : Tidak mengganggu
+            Keterangan
           </p>
         </div>
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col-lg-8 offset-lg-2 text-center">
+        <a href="/"><button type="button" class="btn btn-primary btn-lg mt-4" style="width: 100%;">Ulangi</button></a>
       </div>
     </div>
   </div>

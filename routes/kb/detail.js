@@ -1,16 +1,18 @@
 var express = require("express");
 var app = express();
 
-app.get("/(:jenis)", function (req, res) {
+app.get("/(:jenis)/(:index)", function (req, res) {
     // render to views/index.ejs template file
-
+    let index = req.params.index;
     let jenis = req.params.jenis;
+
+    
     req.getConnection(function (error, conn) {
-        conn.query("SELECT * FROM kriteria", function (err, rows) {
+        conn.query("SELECT detail.id_detail, alternatif.nm_alternatif,detail.keterangan FROM detail JOIN alternatif ON detail.id_alternatif = alternatif.id_alternatif WHERE detail.id_metode = "+index+";", function (err, rows) {
             //if(err) throw err
             if (err) {
                 req.flash("error", err);
-                res.render("kb/criteria/criteria", {
+                res.render("kb/detail/detail", {
                     title: "SPK-KB",
                     data: "",
                     layout: 'layouts/layout'
@@ -18,19 +20,19 @@ app.get("/(:jenis)", function (req, res) {
             } else {
                 // render to views/kb/criteria/criteria.ejs template file
 
-                res.render("kb/criteria/criteria", {
+                res.render("kb/detail/detail", {
                     title: "SPK-KB",
                     data: rows,
                     layout: 'layouts/layout',
+                    index,
                     jenis,
-                    page:"criteria"
+                    page: "detail"
                 });
             }
         });
     });
+    
 });
-
-
 
 /**
  * We assign app object to module.exports

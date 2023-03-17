@@ -3,20 +3,17 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Kriteria</h1>
-        </div>
-        <!-- /.col -->
+          <h1 class="m-0">Prioritas</h1>
+        </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Kriteria</li>
+            <li class="breadcrumb-item">Home</li>
+            <li class="breadcrumb-item">Kriteria</li>
+            <li class="breadcrumb-item">Prioritas</li>
           </ol>
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
-    </div>
-    <!-- /.container-fluid -->
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
   </div>
 
   <div class="container">
@@ -28,24 +25,31 @@
     <div class="row">
       <div class="col-lg-8 offset-lg-2">
         <p class="text-center mb-4">
-          Masukkan angka dari 1 - 7 sesuai dengan urutan prioritas kriteria anda. angka terbesar mewakili prioritas paling utama, diikuti dengan angka
+          Masukkan angka dari 1 - 7 sesuai dengan urutan prioritas kriteria anda. angka terbesar mewakili prioritas
+          paling utama, diikuti dengan angka
           setelahnya sampai dengan angka terkecil.
         </p>
       </div>
     </div>
     <div class="row">
       <div class="col-lg-12">
-        <form action="/priority/add" method="post">
+        <form action="/priority/add/<%= jenis %>" method="post">
           <% data.forEach(element=> { %>
-          <div class="form-group">
-            <label for="exampleInputEmail1"> <%= element.nm_kriteria %> </label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="prioritas" />
-            <input type="text" class="d-none" name="id_kriteria" value="<%= element.id_kriteria %>" />
-            <small id="emailHelp" class="form-text text-muted">Masukkan angka</small>
-          </div>
-          <% }) %>
+            <div class="form-group">
+              <label for="exampleInputEmail1">
+                <%= element.nm_kriteria %>
+              </label>
+              <input type="number" class="form-control" id="exampleInputEmail1" name="prioritas"
+                placeholder="Masukkan angka 1 - 7" />
+              <input type="text" class="d-none" name="id_kriteria" value="<%= element.id_kriteria %>" />
 
-          <button type="submit" class="btn btn-primary">Cek Rekomendasi</button>
+            </div>
+            <% }) %>
+              <div class="row  text-center">
+                <div class="col-lg-12">
+                  <button type="submit" class="btn btn-primary" style="width: 100%;">Cek Rekomendasi</button>
+                </div>
+              </div>
         </form>
       </div>
     </div>
