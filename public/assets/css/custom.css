@@ -21,8 +21,7 @@
   margin: 10px;
 }
 .box3{
-  width: 305px;
-  height: 210px;
+  width: auto;
   border-radius: 20px;
   background: #D7D0FF;
   padding: 15px;
