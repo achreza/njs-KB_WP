@@ -8,7 +8,7 @@ app.get("/(:jenis)/(:index)", function (req, res) {
 
     
     req.getConnection(function (error, conn) {
-        conn.query("SELECT detail.id_detail, alternatif.nm_alternatif,detail.keterangan FROM detail JOIN alternatif ON detail.id_alternatif = alternatif.id_alternatif WHERE detail.id_metode = "+index+";", function (err, rows) {
+        conn.query("SELECT kriteria.nm_kriteria,detail.id_detail, alternatif.nm_alternatif,detail.keterangan FROM detail JOIN alternatif ON detail.id_alternatif = alternatif.id_alternatif JOIN kriteria ON detail.id_metode = kriteria.id_kriteria WHERE detail.id_metode = "+index+";", function (err, rows) {
             //if(err) throw err
             if (err) {
                 req.flash("error", err);
